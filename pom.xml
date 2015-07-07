@@ -6,10 +6,16 @@
 
     <groupId>eu.zacheusz.jolt</groupId>
     <artifactId>jolt-date</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <description>JOLT (https://github.com/bazaarvoice/jolt) date transformation.
         Code based on Defaultr transformation.</description>
     <url>https://github.com/zacheusz/jolt-date</url>
+
+    <properties>
+        <latest.jolt.version>0.0.15</latest.jolt.version>
+        <source.level>1.6</source.level>
+    </properties>
+
     <licenses>
         <license>
             <name>The Apache License, Version 2.0</name>
@@ -26,10 +32,16 @@
         <developerConnection>scm:git:git@github.com:zacheusz/jolt-date.git</developerConnection>
         <url>git@github.com:zacheusz/jolt-date.git</url>
     </scm>
-    <properties>
-        <latest.jolt.version>0.0.15</latest.jolt.version>
-        <source.level>1.6</source.level>
-    </properties>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
     <build>
         <plugins>
             <plugin>

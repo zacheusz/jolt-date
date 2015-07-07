@@ -120,7 +120,7 @@
                         <checkModificationExclude>pom.xml</checkModificationExclude>
                     </checkModificationExcludes>
                     <autoVersionSubmodules>true</autoVersionSubmodules>
-                    <useReleaseProfile>false</useReleaseProfile>
+                    <useReleaseProfile>true</useReleaseProfile>
                     <releaseProfiles>release</releaseProfiles>
                     <goals>deploy</goals>
                     <tagBase>https://github.com/zacheusz/jolt-date/releases</tagBase>

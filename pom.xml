@@ -31,8 +31,7 @@
         <connection>scm:git:git@github.com:zacheusz/jolt-date.git</connection>
         <developerConnection>scm:git:git@github.com:zacheusz/jolt-date.git</developerConnection>
         <url>https://github.com/zacheusz/jolt-date.git</url>
-
-      <tag>jolt-date-1.0.0</tag>
+        <tag>v1.0.0</tag>
   </scm>
     <distributionManagement>
         <snapshotRepository>

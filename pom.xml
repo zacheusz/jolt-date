@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>eu.zacheusz.jolt</groupId>
+    <artifactId>jolt-date</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <properties>
+        <latest.jolt.version>0.0.15</latest.jolt.version>
+        <source.level>1.6</source.level>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>com.bazaarvoice.jolt</groupId>
+            <artifactId>jolt-core</artifactId>
+            <version>${latest.jolt.version}</version>
+        </dependency>
+        <!-- DateConverter -->
+        <dependency>
+            <groupId>com.thoughtworks.xstream</groupId>
+            <artifactId>xstream</artifactId>
+            <version>1.4.8</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-1.2-api</artifactId>
+            <version>2.1</version>
+        </dependency>
+    </dependencies>
+</project>

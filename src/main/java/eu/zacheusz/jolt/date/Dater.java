@@ -7,17 +7,19 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
-import org.apache.log4j.Logger;
+import eu.zacheusz.jolt.date.conversion.DateConverter;
+import java.util.logging.Logger;
+
 
 import com.bazaarvoice.jolt.SpecDriven;
 import com.bazaarvoice.jolt.Transform;
 import com.bazaarvoice.jolt.exception.SpecException;
 import com.bazaarvoice.jolt.exception.TransformException;
-import com.thoughtworks.xstream.converters.basic.DateConverter;
+
 
 public class Dater implements SpecDriven, Transform {
 
-	private final Logger logger = Logger.getLogger(getClass());
+	private final Logger logger = Logger.getLogger(getClass().getName());
 	
     public interface WildCards {
         String STAR = "*";

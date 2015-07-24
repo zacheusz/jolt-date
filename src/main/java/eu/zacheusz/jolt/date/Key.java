@@ -14,15 +14,19 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.apache.log4j.Logger;
+import eu.zacheusz.jolt.date.conversion.ConversionException;
+import eu.zacheusz.jolt.date.conversion.DateConverter;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 import com.bazaarvoice.jolt.exception.TransformException;
-import com.thoughtworks.xstream.converters.ConversionException;
-import com.thoughtworks.xstream.converters.basic.DateConverter;
+
 
 public abstract class Key {
 
-	protected final Logger logger = Logger.getLogger(getClass());
+	protected final Logger logger = Logger.getLogger(getClass().getName());
 	
     /**
      * Factory-ish method that recursively processes a Map<String, Object> into a Set<Key> objects.
@@ -158,16 +162,24 @@ public abstract class Key {
         }
     }
 
-	protected Object reformatDate(final String inputFormat, final String inputDate) {
+	protected Object reformatDate(final String inputFormat, final Object inputDate) {
 		if (inputDate == null) {
 			throw new IllegalArgumentException("Input date can't be null.");
 		}
 		Object output = null;
 		if (inputFormat == null) {
-			logger.warn("Input format is null. Skipping conversion.");
+            logger.log(Level.WARNING, "Input format is null. Skipping conversion.");
 		} else {
 			try {
-				final Date date = (Date) dateConverter.fromString(inputDate);
+                final Date date;
+                if (inputDate instanceof String) {
+                    date = (Date) dateConverter.fromString((String) inputDate);
+                } else if (inputDate instanceof Long) {
+                    date = new Date((Long)inputDate);
+                } else {
+                    throw new ConversionException("unsupported input date type " + inputDate.getClass());
+                }
+
 				if ("TIMESTAMP".equalsIgnoreCase(inputFormat)) {
 					output = Long.valueOf(date.getTime());
 				} else {
@@ -176,11 +188,11 @@ public abstract class Key {
 						dateFormat = new SimpleDateFormat(inputFormat);
 						output = dateFormat.format(date);
 					} catch (IllegalArgumentException e) {
-						logger.warn("Invalid date format " + inputFormat, e);
+                        logger.log(Level.WARNING, "Invalid date format " + inputFormat, e);
 					}
 				}
 			} catch (ConversionException e) {
-				logger.warn("can't convert string " + inputDate + " to date. Check context configuration.", e);
+                logger.log(Level.WARNING, "can't convert string " + inputDate + " to date. Check context configuration.", e);
 			}
 		}
 		return output;

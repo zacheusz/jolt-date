@@ -18,16 +18,16 @@
       <profile default="true" name="Default" enabled="false">
         <processorPath useClasspath="true" />
       </profile>
-      <profile default="false" name="Maven default annotation processors profile" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+      <profile default="false" name="Annotation profile for jolt-date" enabled="true">
+        <sourceOutputDir name="target\generated-sources\annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="jolt-date" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="jolt-date" target="1.5" />
+    <bytecodeTargetLevel target="1.7">
+      <module name="jolt-date" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>

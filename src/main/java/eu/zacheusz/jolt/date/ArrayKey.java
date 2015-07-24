@@ -1,12 +1,14 @@
 package eu.zacheusz.jolt.date;
 
+import eu.zacheusz.jolt.date.conversion.DateConverter;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.logging.Level;
 
-import com.thoughtworks.xstream.converters.basic.DateConverter;
 
 public class ArrayKey extends Key {
 
@@ -63,18 +65,18 @@ public class ArrayKey extends Key {
         Object currentValue = container.get( literalIndex );
 //        System.out.println("Array defaulteeValue: " + currentValue);
         if ( children == null ) {
-            if ( currentValue instanceof String) {
-            	logger.debug("String value with no childrens for key: " + literalIndex);
+            if ( currentValue != null) {
+                logger.log(Level.FINER, "value with no childrens for key: " + literalIndex);
               //  container.set( literalIndex, DeepCopy.simpleDeepCopy( literalValue ) );  // apply a copy of the default value into a List, assumes the list as already been expanded if needed.
                  if (literalValue instanceof String) {
-                 	Object newValue = reformatDate((String)literalValue, (String)currentValue);
+                 	Object newValue = reformatDate((String)literalValue, currentValue);
                  	container.set( literalIndex, newValue );  
                  } else {
-                 	logger.debug("spec value is not an instance of String: " + literalValue);
+                     logger.log(Level.WARNING, "spec value is not an instance of String: " + literalValue);
                  }
             } else {
-            	logger.debug("value for key " + literalIndex + " is not instance of String: " + currentValue);
-            } 
+                logger.log(Level.WARNING, "value for key " + literalIndex + " is null");
+            }
         }
         else {
             if ( currentValue == null ) {

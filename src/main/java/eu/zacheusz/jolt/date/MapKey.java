@@ -1,12 +1,13 @@
 package eu.zacheusz.jolt.date;
 
 import com.bazaarvoice.jolt.common.DeepCopy;
-import com.thoughtworks.xstream.converters.basic.DateConverter;
+import eu.zacheusz.jolt.date.conversion.DateConverter;
 
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.logging.Level;
 
 public class MapKey extends Key {
 
@@ -37,21 +38,21 @@ public class MapKey extends Key {
     private void applyLiteralKeyToContainer( String literalKey, Map<String, Object> container ) {
 
         Object currentValue = container.get( literalKey );
-        logger.debug("for key: " + literalKey + " value: " + currentValue);
+        logger.log(Level.FINER, "for key: " + literalKey + " value: " + currentValue);
 //        System.out.println("map defaulteeValue: " + currentValue);
         if ( children == null ) {
-            if ( currentValue instanceof String ) {
-            	logger.debug("String value with no childrens for key: " + literalKey);
+            if ( currentValue != null ) {
+                logger.log(Level.FINER, "value with no childrens for key: " + literalKey);
                // container.put( literalKey, DeepCopy.simpleDeepCopy( literalValue ) );  // apply a copy of the default value into a map
 
                 if (literalValue instanceof String) {
-                	Object newValue = reformatDate((String)literalValue, (String)currentValue);
+                	Object newValue = reformatDate((String)literalValue, currentValue);
                 	container.put( literalKey, newValue );  
                 } else {
-                	logger.debug("spec value is not an instance of String: " + literalValue);
+                    logger.log(Level.WARNING, "spec value is not an instance of String: " + literalValue);
                 }
             } else {
-            	logger.debug("value for key " + literalKey + " is not instance of String: " + currentValue);
+                logger.log(Level.WARNING, "value for key " + literalKey + " is null");
             }
         }
         else {

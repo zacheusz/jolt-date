@@ -1,0 +1,207 @@
+{
+  "input": {
+    "requests" : [{
+      "attributes" : {
+        "type" : "Support_Request__c",
+        "url" : "/services/data/v30.0/sobjects/Support_Request__c/a74140000004GwbAAE"
+      },
+      "Id" : "a74140000004GwbAAE",
+      "Opportunity__c" : null,
+      "Opportunity__r" : null,
+      "Account__c" : null,
+      "Account__r" : null,
+      "Request_Status__c" : "Implemented",
+      "CreatedDate" : "2014-09-08T15:47:02.000+0000",
+      "Offer_Type__c" : "AEM Released version",
+      "Infrastructure_End_Date__c" : "2014-09-30",
+      "Infrastructure_Start_Date__c" : "2014-09-09",
+      "Request_Type__c" : "Infrastructure",
+      "Reason_for_Support_Request__c" : "Machine for demo development purposes. (demo: SR-00004988)",
+      "Products_Solutions_to_be_Included__c" : "CQ"
+    },
+      {
+        "attributes" : {
+          "type" : "Support_Request__c",
+          "url" : "/services/data/v30.0/sobjects/Support_Request__c/0000000000000000000"
+        },
+        "Id" : "0000000000000000000",
+        "Opportunity__c" : "111111111111111111",
+        "Opportunity__r" : {
+          "attributes" : {
+            "type" : "Opportunity",
+            "url" : "/services/data/v30.0/sobjects/Opportunity/111111111111111111"
+          },
+          "Name" : "Test Group - Analytics"
+        },
+        "Account__c" : null,
+        "Account__r" : null,
+        "Request_Status__c" : "Pending Approval",
+        "CreatedDate" : "2015-04-13T09:35:18.000+0000",
+        "Offer_Type__c" : "Adobe Analytics",
+        "Infrastructure_Start_Date__c" : null,
+        "Request_Type__c" : "Digital Marketing Specialist",
+        "Reason_for_Support_Request__c" : "reas",
+        "Products_Solutions_to_be_Included__c" : null
+      }, {
+        "attributes" : {
+          "type" : "Support_Request__c",
+          "url" : "/services/data/v30.0/sobjects/Support_Request__c/2222222222222222222"
+        },
+        "Id" : "2222222222222222222",
+        "Opportunity__c" : "111111111111111111",
+        "Opportunity__r" : {
+          "attributes" : {
+            "type" : "Opportunity",
+            "url" : "/services/data/v30.0/sobjects/Opportunity/111111111111111111"
+          },
+          "Name" : "Test Group - Analytics"
+        },
+        "Account__c" : null,
+        "Account__r" : null,
+        "Request_Status__c" : "Pending Approval",
+        "CreatedDate" : "2015-04-13T09:37:47.000+0000",
+        "Offer_Type__c" : "Commercial/Vertical",
+        "Infrastructure_End_Date__c" : null,
+        "Infrastructure_Start_Date__c" : null,
+        "Request_Type__c" : "Digital Media Specialist",
+        "Reason_for_Support_Request__c" : "reas",
+        "Products_Solutions_to_be_Included__c" : null
+      }, {
+        "attributes" : {
+          "type" : "Support_Request__c",
+          "url" : "/services/data/v30.0/sobjects/Support_Request__c/33333333333333333333"
+        },
+        "Id" : "33333333333333333333",
+        "Opportunity__c" : null,
+        "Opportunity__r" : null,
+        "Account__c" : "444444444444444444444",
+        "Account__r" : {
+          "attributes" : {
+            "type" : "Account",
+            "url" : "/services/data/v30.0/sobjects/Account/444444444444444444444"
+          },
+          "Name" : "Test Group"
+        },
+        "Request_Status__c" : "Pending Approval",
+        "CreatedDate" : "2015-04-15T15:39:07.000+0000",
+        "Offer_Type__c" : "Value Indicator Deck",
+        "Infrastructure_End_Date__c" : null,
+        "Infrastructure_Start_Date__c" : null,
+        "Request_Type__c" : "Value Engineering",
+        "Reason_for_Support_Request__c" : "re",
+        "Products_Solutions_to_be_Included__c" : "LiveCycle"
+      }
+    ]
+  },
+
+  "spec" : {
+    "input" : {
+      "defaultInputFormat" : "yyyy-MM-dd",
+      "acceptableInputFormats" : ["dd/MM/yyyy", "yyyy-MM-dd'T'HH:mm:ss.SSSZ"]
+    },
+    "output" : {
+      "requests[]" : {
+        "*" : {
+          "Infrastructure_Start_Date__c" 	: "TIMESTAMP",
+          "Infrastructure_End_Date__c" 	: "TIMESTAMP",
+          "CreatedDate" : "TIMESTAMP",
+          "DueDate" : "TIMESTAMP"
+        }
+      }
+    }
+  },
+
+  "expected": {
+    "requests" : [{
+      "attributes" : {
+        "type" : "Support_Request__c",
+        "url" : "/services/data/v30.0/sobjects/Support_Request__c/a74140000004GwbAAE"
+      },
+      "Id" : "a74140000004GwbAAE",
+      "Opportunity__c" : null,
+      "Opportunity__r" : null,
+      "Account__c" : null,
+      "Account__r" : null,
+      "Request_Status__c" : "Implemented",
+      "CreatedDate" : 1410134400000,
+      "Offer_Type__c" : "AEM Released version",
+      "Infrastructure_End_Date__c" : 1412035200000,
+      "Infrastructure_Start_Date__c" : 1410220800000,
+      "Request_Type__c" : "Infrastructure",
+      "Reason_for_Support_Request__c" : "Machine for demo development purposes. (demo: SR-00004988)",
+      "Products_Solutions_to_be_Included__c" : "CQ"
+    }, {
+      "attributes" : {
+        "type" : "Support_Request__c",
+        "url" : "/services/data/v30.0/sobjects/Support_Request__c/0000000000000000000"
+      },
+      "Id" : "0000000000000000000",
+      "Opportunity__c" : "111111111111111111",
+      "Opportunity__r" : {
+        "attributes" : {
+          "type" : "Opportunity",
+          "url" : "/services/data/v30.0/sobjects/Opportunity/111111111111111111"
+        },
+        "Name" : "Test Group - Analytics"
+      },
+      "Account__c" : null,
+      "Account__r" : null,
+      "Request_Status__c" : "Pending Approval",
+      "CreatedDate" : 1428883200000,
+      "Offer_Type__c" : "Adobe Analytics",
+      "Infrastructure_Start_Date__c" : null,
+      "Request_Type__c" : "Digital Marketing Specialist",
+      "Reason_for_Support_Request__c" : "reas",
+      "Products_Solutions_to_be_Included__c" : null
+    }, {
+      "attributes" : {
+        "type" : "Support_Request__c",
+        "url" : "/services/data/v30.0/sobjects/Support_Request__c/2222222222222222222"
+      },
+      "Id" : "2222222222222222222",
+      "Opportunity__c" : "111111111111111111",
+      "Opportunity__r" : {
+        "attributes" : {
+          "type" : "Opportunity",
+          "url" : "/services/data/v30.0/sobjects/Opportunity/111111111111111111"
+        },
+        "Name" : "Test Group - Analytics"
+      },
+      "Account__c" : null,
+      "Account__r" : null,
+      "Request_Status__c" : "Pending Approval",
+      "CreatedDate" : 1428883200000,
+      "Offer_Type__c" : "Commercial/Vertical",
+      "Infrastructure_End_Date__c" : null,
+      "Infrastructure_Start_Date__c" : null,
+      "Request_Type__c" : "Digital Media Specialist",
+      "Reason_for_Support_Request__c" : "reas",
+      "Products_Solutions_to_be_Included__c" : null
+    }, {
+      "attributes" : {
+        "type" : "Support_Request__c",
+        "url" : "/services/data/v30.0/sobjects/Support_Request__c/33333333333333333333"
+      },
+      "Id" : "33333333333333333333",
+      "Opportunity__c" : null,
+      "Opportunity__r" : null,
+      "Account__c" : "444444444444444444444",
+      "Account__r" : {
+        "attributes" : {
+          "type" : "Account",
+          "url" : "/services/data/v30.0/sobjects/Account/444444444444444444444"
+        },
+        "Name" : "Test Group"
+      },
+      "Request_Status__c" : "Pending Approval",
+      "CreatedDate" : 1429056000000,
+      "Offer_Type__c" : "Value Indicator Deck",
+      "Infrastructure_End_Date__c" : null,
+      "Infrastructure_Start_Date__c" : null,
+      "Request_Type__c" : "Value Engineering",
+      "Reason_for_Support_Request__c" : "re",
+      "Products_Solutions_to_be_Included__c" : "LiveCycle"
+    }
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "input": {
+    "objects" : [{
+          "date1" : "2014-09-08T15:47:02.000+0000",
+          "date2" : "7/24/2015",
+          "date3" : 1412035200000
+
+      }]
+  },
+
+  "spec" : {
+    "input" : {
+      "defaultInputFormat" : "yyyy-MM-dd",
+      "acceptableInputFormats" : ["MM/dd/yyyy",
+        "yyyy-MM-dd'T'HH:mm:ss.SSSZ",
+        "dd-M-yyyy hh:mm:ss"]
+    },
+    "output" : {
+      "objects[]" : {
+        "*" : {
+          "date1" 	: "TIMESTAMP",
+          "date2" 	: "yyyy-MM-dd",
+          "date3"   : "dd/MM/yyyy"
+        }
+      }
+    }
+  },
+
+  "expected": {
+    "objects" : [{
+      "date1" 	: 1410134400000,
+      "date2" 	: "2015-07-24",
+      "date3"   : "30/09/2014"
+    }
+    ]
+  }
+}
